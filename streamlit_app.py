@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
 
-st.title('First app using streamlit a Github!')
-st.success('This thing is working')
+st.title('Fruits dataframe')
+fruits_df = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
+st.dataframe(fruits_df)
