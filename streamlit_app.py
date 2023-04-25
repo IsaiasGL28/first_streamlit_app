@@ -47,5 +47,5 @@ if st.button('Get Fruit Load List'):
 
   fruit_to_add = st.text_input('What fruit would you like to add?')
   if st.button('Add a Fruit to the List'):
-    my_cur.execute(f"INSERT INTO fruit_load_list VALUES ('{fruit_to_add}')")
+    my_cur.execute(f"INSERT INTO fruit_load_list VALUES ('"{fruit_to_add}"')")
     st.write('Thanks for adding '+ fruit_to_add)
