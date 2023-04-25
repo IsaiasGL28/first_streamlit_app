@@ -29,7 +29,7 @@ try:
   sel_fruit = st.text_input('What fruit would you like information about?', 'Kiwi')
   if not sel_fruit:
     st.error('Please select a fruit to get information')
-   else:
+  else:
     json_response = requests.get(api_url+sel_fruit).json()
     fruityvice_df = pd.json_normalize(json_response)
     st.dataframe(fruityvice_df)
