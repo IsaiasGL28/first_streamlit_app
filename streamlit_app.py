@@ -1,3 +1,4 @@
+import snowflake.connector as snf_con
 import streamlit as st
 import pandas as pd
 import requests
