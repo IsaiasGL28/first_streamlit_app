@@ -25,11 +25,16 @@ st.dataframe(df_to_show)
 #-------------------- FRUITYVICE API ---------------------
 st.header('Fruityvice Fruit Advice!')
 api_url = 'https://fruityvice.com/api/fruit/'
-sel_fruit = st.text_input('What fruit would you like information about?', 'Kiwi')
-st.write('The user entered', sel_fruit)
-json_response = requests.get(api_url+sel_fruit).json()
-fruityvice_df = pd.json_normalize(json_response)
-st.dataframe(fruityvice_df)
+try:
+  sel_fruit = st.text_input('What fruit would you like information about?', 'Kiwi')
+  if not sel_fruit:
+    st.error('Please select a fruit to get information')
+   else:
+    json_response = requests.get(api_url+sel_fruit).json()
+    fruityvice_df = pd.json_normalize(json_response)
+    st.dataframe(fruityvice_df)
+except URLError as e:
+  st.error()
 
 st.stop()
 # ----------------- SNOWFLAKE CONNECTION -----------------
