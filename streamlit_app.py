@@ -38,12 +38,15 @@ except URLError as e:
 
 st.stop()
 # ----------------- SNOWFLAKE CONNECTION -----------------
-my_cnx = snf_con.connect(**st.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * from fruit_load_list")
-fruit_df = my_cur.fetchall()
 st.header("The fruit load list contains: ")
-st.dataframe(fruit_df)
+if st.button('Get Fruit Load List'):
+  my_cnx = snf_con.connect(**st.secrets["snowflake"])
+  my_cur = my_cnx.cursor()
+  my_cur.execute("SELECT * from fruit_load_list")
+  fruit_df = my_cur.fetchall()
+  st.dataframe(fruit_df)
 
-fruit_to_add = st.text_input('What fruit would you like to add?')
-st.write('Thanks for adding '+ fruit_to_add)
+  fruit_to_add = st.text_input('What fruit would you like to add?')
+  if st.button('Add a Fruit to the List'):
+    my_cur.execute(f"INSERT INTO fruit_load_list VALUES ('{fruit_to_add}')"
+    st.write('Thanks for adding '+ fruit_to_add)
