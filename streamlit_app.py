@@ -23,6 +23,8 @@ st.dataframe(df_to_show)
 #-------------------- FRUITYVICE API ---------------------
 st.header('Fruityvice Fruit Advice!')
 api_url = 'https://fruityvice.com/api/fruit/'
-json_response = requests.get(api_url+'kiwi').json()
+sel_fruit = st.text_input('What fruit would you like information about?', 'Kiwi')
+st.write('The user entered', sel_fruit)
+json_response = requests.get(api_url+sel_fruit).json()
 fruityvice_df = pd.json_normalize(json_response)
 st.dataframe(fruityvice_df)
