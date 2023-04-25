@@ -26,7 +26,7 @@ st.dataframe(df_to_show)
 st.header('Fruityvice Fruit Advice!')
 api_url = 'https://fruityvice.com/api/fruit/'
 try:
-  sel_fruit = st.text_input('What fruit would you like information about?', 'Kiwi')
+  sel_fruit = st.text_input('What fruit would you like information about?')
   if not sel_fruit:
     st.error('Please select a fruit to get information')
   else:
@@ -45,5 +45,5 @@ fruit_df = my_cur.fetchall()
 st.header("The fruit load list contains: ")
 st.dataframe(fruit_df)
 
-fruit_to_add = st.text_input('What fruit would you like to add?', 'jackfruit')
+fruit_to_add = st.text_input('What fruit would you like to add?')
 st.write('Thanks for adding '+ fruit_to_add)
