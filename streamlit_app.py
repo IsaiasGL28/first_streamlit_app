@@ -21,6 +21,7 @@ df_to_show = fruits_df.loc[fruits_selected]
 st.dataframe(df_to_show)
 
 #-------------------- FRUITYVICE API ---------------------
+st.header('Fruityvice Fruit Advice!')
 api_url = 'https://fruityvice.com/api/fruit/'
 json_response = requests.get(api_url+'kiwi').json()
 fruityvice_df = pd.json_normalize(json_response)
