@@ -1,7 +1,9 @@
 import streamlit as st
 import pandas as pd
 
-st.title('Fruits dataframe')
+st.title('My Mom\'s New Healthy Diner')
+st.header('Breakfast Favorites')
+st.write(':bowl_with_spoon: Omega 3 & Blueberry Oatmeal')
 fruits_df = pd.read_csv('https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt')
 fruits_df = fruits_df.set_index('Fruit')
 fruits_list = list(fruits_df.index)
